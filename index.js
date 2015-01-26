@@ -10,7 +10,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var gutil = require('gulp-util');
 
 
-module.exports = baseTask('Jade', function() {
+module.exports = baseTask('Sass', function() {
 
 	this.watchStarter(function(job, compile) {
 		watch(job.config.watch===true ? job.config.src : job.config.watch, function() {

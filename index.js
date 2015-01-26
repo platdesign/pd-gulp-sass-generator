@@ -1,4 +1,86 @@
 'use strict';
+
+var baseTask = require('pd-gulp-base-task');
+var watch = require('gulp-watch');
+
+var sass = require('gulp-sass');
+var plumber = require('gulp-plumber');
+var livereload = require('gulp-livereload');
+var autoprefixer = require('gulp-autoprefixer');
+var gutil = require('gulp-util');
+
+
+module.exports = baseTask('Jade', function() {
+
+	this.watchStarter(function(job, compile) {
+		watch(job.config.watch===true ? job.config.src : job.config.watch, function() {
+			compile(job);
+		});
+		livereload.listen();
+	});
+
+	this.worker(function(job, cb) {
+
+		return this.gulp.src(job.config.src)
+			.pipe( plumber({
+				errorHandler: function(err) {
+					cb(err);
+					this.emit('end');
+				}
+			}) )
+			.pipe( sass( job.config.sass || {} ) )
+			.on('error', cb)
+			.pipe( autoprefixer( job.config.autoprefixer || 'last 3 versions', '> 1%', 'ie 8') )
+			.on('error', cb)
+			.pipe( this.plugin('banner', job.options) )
+			.on('error', cb)
+			.pipe( this.gulp.dest( job.config.dest ) )
+			.on('error', cb)
+			.pipe( job.config.livereload ? livereload(job.config.livereload) : gutil.noop() )
+			.on('error', cb)
+			.on('end', cb);
+
+
+	});
+
+	this.appendTask('default', {
+		sass:{
+			outputStyle: 'nested'
+		}
+	});
+
+	this.appendTask('build', {
+		sass:{
+			outputStyle: 'compressed'
+		}
+	});
+
+	this.appendTask('watch', {
+		sass:{
+			outputStyle: 'nested'
+		},
+		watch:true,
+		livereload: true
+	});
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+
+'use strict';
 var pdGulpBaseTask = require('pd-gulp-base-task');
 //var pdGulpBaseTask = require('../pd-gulp-base-task');
 
@@ -58,3 +140,5 @@ module.exports = function pdGulpTaskJS(options) {
 
 	return task.gulpHandler();
 };
+
+*/

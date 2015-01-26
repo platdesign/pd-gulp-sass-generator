@@ -1,0 +1,8 @@
+/*  HUHU */
+body {
+  background: green; }
+
+.todo {
+  background: blue; }
+  .todo.today {
+    background: green; }

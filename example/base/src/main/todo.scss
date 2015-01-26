@@ -1,0 +1,7 @@
+.todo {
+	background: blue;
+
+	&.today {
+		background: green;
+	}
+}

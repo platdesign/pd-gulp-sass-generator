@@ -19,7 +19,7 @@ module.exports = baseTask('Sass', function() {
 		livereload.listen();
 	});
 
-	this.worker(function(job, cb) {
+	this.compile(function(job, cb) {
 
 		return this.gulp.src(job.config.src)
 			.pipe( plumber({

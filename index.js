@@ -36,6 +36,7 @@ module.exports = baseTask('Sass', function() {
 			.on('error', cb)
 			.pipe( this.gulp.dest( job.config.dest ) )
 			.on('error', cb)
+			.on('end', cb)
 			.pipe( job.config.livereload ? livereload(job.config.livereload) : gutil.noop() )
 			.on('error', cb)
 			.on('end', cb);

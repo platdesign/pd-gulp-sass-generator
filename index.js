@@ -28,9 +28,9 @@ module.exports = baseTask('Sass', function() {
 					this.emit('end');
 				}
 			}) )
-			.pipe( cssimport(job.config.cssimport || { extendsions:['css']}) )
-			.on('error', cb)
 			.pipe( sass( job.config.sass || {} ) )
+			.on('error', cb)
+			.pipe( cssimport(job.config.cssimport || { extendsions:['css']}) )
 			.on('error', cb)
 			.pipe( autoprefixer( job.config.autoprefixer || 'last 3 versions', '> 1%', 'ie 8') )
 			.on('error', cb)

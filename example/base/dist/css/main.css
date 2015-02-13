@@ -1,9 +1,10 @@
 /*  HUHU */
+.test-css-import {
+	color:red;
+}
+
 body {
   background: green; }
-
-.test-css-import {
-  color: red; }
 
 .todo {
   background: blue; }

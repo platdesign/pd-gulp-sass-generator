@@ -31,5 +31,6 @@
 - `sass` Configuration object for [gulp-sass](https://github.com/dlmanning/gulp-sass)
 - `autoprefixer` Configuration object for [gulp-autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer)
 - `livereload` Configuration object for [gulp-livereload](https://github.com/vohof/gulp-livereload)
+- `cssimport` Configuration object for [gulp-livereload](https://github.com/vohof/gulp-livereload)
 - `watch` True or path which will be observed.
 

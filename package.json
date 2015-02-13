@@ -1,7 +1,7 @@
 {
   "name": "pd-gulp-sass-task",
   "description": "pd-gulp-sass-task",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "dependencies": {
     "gulp": "^3.8.10",
     "gulp-autoprefixer": "^2.1.0",

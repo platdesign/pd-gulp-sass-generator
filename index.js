@@ -8,7 +8,7 @@ var plumber = require('gulp-plumber');
 var livereload = require('gulp-livereload');
 var autoprefixer = require('gulp-autoprefixer');
 var gutil = require('gulp-util');
-
+var cssimport = require('gulp-cssimport');
 
 module.exports = baseTask('Sass', function() {
 
@@ -28,6 +28,8 @@ module.exports = baseTask('Sass', function() {
 					this.emit('end');
 				}
 			}) )
+			.pipe( cssimport(job.config.cssimport || { extendsions:['css']}) )
+			.on('error', cb)
 			.pipe( sass( job.config.sass || {} ) )
 			.on('error', cb)
 			.pipe( autoprefixer( job.config.autoprefixer || 'last 3 versions', '> 1%', 'ie 8') )

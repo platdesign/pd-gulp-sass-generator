@@ -2,6 +2,9 @@
 body {
   background: green; }
 
+.test-css-import {
+  color: red; }
+
 .todo {
   background: blue; }
   .todo.today {

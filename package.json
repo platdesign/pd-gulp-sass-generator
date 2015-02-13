@@ -11,7 +11,8 @@
     "gulp-sass": "^1.3.2",
     "gulp-util": "^3.0.2",
     "gulp-watch": "^4.1.0",
-    "pd-gulp-base-task": "git://github.com/platdesign/pd-gulp-base-task"
+    "pd-gulp-base-task": "git://github.com/platdesign/pd-gulp-base-task",
+    "gulp-cssimport": "^1.3.1"
   },
   "repository": ""
 }

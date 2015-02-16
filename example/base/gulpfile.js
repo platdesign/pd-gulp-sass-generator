@@ -14,7 +14,7 @@ scss.register({
 	},
 	lib: {
 		src: './src/*.scss',
-		dest: './dist/css'
+		dest: './dist'
 	}
 }, {
 	watch: {

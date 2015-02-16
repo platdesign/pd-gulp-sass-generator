@@ -8,7 +8,8 @@ var plumber = require('gulp-plumber');
 var livereload = require('gulp-livereload');
 var autoprefixer = require('gulp-autoprefixer');
 var gutil = require('gulp-util');
-var cssimport = require('gulp-cssimport');
+
+var minifyCss = require('gulp-minify-css');
 
 module.exports = baseTask('Sass', function() {
 
@@ -30,9 +31,9 @@ module.exports = baseTask('Sass', function() {
 			}) )
 			.pipe( sass( job.config.sass || {} ) )
 			.on('error', cb)
-			.pipe( cssimport(job.config.cssimport || { extendsions:['css']}) )
-			.on('error', cb)
 			.pipe( autoprefixer( job.config.autoprefixer || 'last 3 versions', '> 1%', 'ie 8') )
+			.on('error', cb)
+			.pipe( job.config.minify ? minifyCss(job.config.minify) : gutil.noop())
 			.on('error', cb)
 			.pipe( this.plugin('banner', job.options) )
 			.on('error', cb)
@@ -54,7 +55,10 @@ module.exports = baseTask('Sass', function() {
 
 	this.appendTask('build', {
 		sass:{
-			outputStyle: 'compressed'
+			outputStyle: 'nested'
+		},
+		minify: {
+
 		}
 	});
 

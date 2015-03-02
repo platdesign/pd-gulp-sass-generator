@@ -1,20 +1,18 @@
 'use strict';
 
-var baseTask = require('pd-gulp-base-task');
-var watch = require('gulp-watch');
+var createGenerator = require('pd-gulp-task-generator-generator');
 
+var watch = require('gulp-watch');
 var sass = require('gulp-sass');
 var plumber = require('gulp-plumber');
 var livereload = require('gulp-livereload');
 var autoprefixer = require('gulp-autoprefixer');
 var gutil = require('gulp-util');
-
 var minifyCss = require('gulp-minify-css');
 
 
 
-
-module.exports = baseTask('Sass', function() {
+module.exports = createGenerator('Sass', function() {
 
 	this.watchStarter(function(job, compile) {
 		watch(job.config.watch===true ? job.config.src : job.config.watch, function() {

@@ -1,13 +1,16 @@
-#pd-gulp-sass-task
+#pd-gulp-sass
+
+[pd-gulp](https://github.com/platdesign/pd-gulp) task generator for sass/scss tasks.
+
 
 ##Install
 
-	npm install --save platdesign/pd-gulp-sass-task
+	npm install --save pd-gulp-sass
 	
 ##Example
 
 	var gulp = require('gulp');
-	var sass = require('pd-gulp-sass-task')(gulp);
+	var sass = require('pd-gulp-sass')(gulp);
 
 	// Register default tasks (default, watch, build, etc.)
 	sass.register({

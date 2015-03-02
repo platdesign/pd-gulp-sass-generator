@@ -15,5 +15,8 @@
     "pd-gulp-task-generator-generator": "*",
     "gulp-minify-css": "^0.4.5"
   },
-  "repository": ""
+  "repository": {
+    "type" : "git",
+    "url" : "http://github.com/platdesign/pd-gulp-sass-generator.git"
+  }
 }

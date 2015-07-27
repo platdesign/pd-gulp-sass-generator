@@ -52,6 +52,9 @@ module.exports = createGenerator('Sass', function() {
 	this.appendTask('default', {
 		sass:{
 			outputStyle: 'nested'
+		},
+		minify: {
+			processImport: true
 		}
 	});
 
@@ -60,13 +63,16 @@ module.exports = createGenerator('Sass', function() {
 			outputStyle: 'nested'
 		},
 		minify: {
-
+			processImport: true
 		}
 	});
 
 	this.appendTask('watch', {
 		sass:{
 			outputStyle: 'nested'
+		},
+		minify: {
+			processImport: true
 		},
 		watch:true,
 		livereload: true

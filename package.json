@@ -2,7 +2,7 @@
   "name": "pd-gulp-sass",
   "description": "pd-gulp generator for sass/scss tasks",
   "author": "Christian Blaschke <mail@platdesign.de>",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "dependencies": {
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^2.1.0",
